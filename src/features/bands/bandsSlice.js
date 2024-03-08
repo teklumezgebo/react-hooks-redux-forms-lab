@@ -1,15 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export function bandAdded(band) {
+  return { type: "bands/bandAdded", payload: band }
+}
+
 const bandsSlice = createSlice({
   name: "bands",
   initialState: {
     entities: [],
   },
   reducers: {
-    // create reducer methods
+    bandAdded(state, action) {
+      state.entities.push(action.payload)
+    }
   },
 });
-
-// export the action creators
 
 export default bandsSlice.reducer;
